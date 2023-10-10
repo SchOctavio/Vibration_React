@@ -15,6 +15,11 @@ export default function App() {
   };
   const SEGUNDO = 1000;
   const PATRON = [1 * SEGUNDO, 2 * SEGUNDO, 2 * SEGUNDO, 1 * SEGUNDO];
+
+  const PATRON_DESCRIPCION =
+  Platform.OS === 'android'
+      ? 'esperar 1s, vibrar 2s, esperar 2s y vibrar 1s'
+      : 'esperar 1s, vibrar, esperar 2s, vibrar, esperar 2s, vibrar, esperar 1s y vibrar';
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -31,7 +36,7 @@ export default function App() {
       </View>
       <View>
         <Text style={styles.paragraph}>
-          Patrón: esperar 1s, vibrar 2s, esperar 2s y vibrar 1s
+          Patrón: {PATRON_DESCRIPCION}
         </Text>
         <Button
           title="Vibrar con patrón"
